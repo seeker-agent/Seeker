@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seeker Pro — подписка 1 199 ₽ / мес | Seeker</title>
+<meta name="description" content="Единственная подписка Seeker Pro: 1 199 ₽ в месяц или 11 999 ₽ в год. Лимит 2 000 000 токенов со сбросом каждые 5 часов, AI-агент Seeker v1, ПК и мобильное приложение.">
+<meta name="theme-color" content="#06030d">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="bg-layer" aria-hidden="true">
+  <span class="orb orb-1"></span>
+  <span class="orb orb-2"></span>
+  <span class="orb orb-3"></span>
+</div>
+
+<header class="nav" id="nav">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img class="logo-img" src="logo.png" alt="Логотип Seeker" width="34" height="34">
+      Seeker
+    </a>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html#features">Возможности</a></li>
+        <li><a href="index.html#mobile">Мобильное приложение</a></li>
+        <li><a href="index.html#agent">Seeker v1</a></li>
+        <li><a href="pricing.html" class="active">Подписка</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="btn btn-ghost btn-dash" href="dashboard.html" aria-label="Панель управления" title="Панель управления">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/></svg>
+        <span class="btn-dash-label">Панель управления</span>
+      </a>
+      <a class="btn btn-primary" href="#buy">Оформить</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="nav-drawer" id="navDrawer">
+  <a href="index.html#features">Возможности</a>
+  <a href="index.html#mobile">Мобильное приложение</a>
+  <a href="index.html#agent">Seeker v1</a>
+  <a href="#limits">Лимиты токенов</a>
+  <a href="#faq">Вопросы</a>
+  <a href="dashboard.html">Панель управления</a>
+  <a class="btn btn-primary btn-block" href="#buy">Оформить Seeker Pro</a>
+</div>
+
+<main>
+
+<section class="page-head">
+  <div class="container reveal">
+    <span class="eyebrow"><span class="dot"></span>Единственная подписка</span>
+    <h1>Seeker <span class="text-gradient">Pro</span></h1>
+    <p class="lead">Один тариф, который открывает всё: AI-агент Seeker v1, лимит 2 000 000 токенов на сеанс и мобильное приложение с теми же проектами.</p>
+
+    <div class="billing-toggle" role="group" aria-label="Период оплаты">
+      <span class="glider" aria-hidden="true"></span>
+      <button type="button" class="active" data-plan="month" aria-pressed="true">Месяц</button>
+      <button type="button" data-plan="year" aria-pressed="false">Год <span class="save-badge">−17%</span></button>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container pricing-wrap">
+
+    <div class="plan reveal" id="buy">
+      <div class="plan-top">
+        <div class="plan-name">
+          <img class="logo-img" src="logo.png" alt="Логотип Seeker" width="30" height="30">
+          Seeker Pro
+        </div>
+        <span class="plan-badge">Всё включено</span>
+      </div>
+
+      <div class="plan-price">
+        <span class="amount" id="planAmount">1 199 ₽</span>
+        <span class="period" id="planPeriod">/ месяц</span>
+      </div>
+
+      <p class="plan-sub" id="planSub">Списание каждый месяц. Отменить можно в любой момент.</p>
+
+      <div class="plan-cta">
+        <a class="btn btn-primary btn-lg btn-block" href="#buy">Подключить Seeker Pro</a>
+        <p class="plan-note">Одна подписка на ПК и мобильное приложение. Без доплат за устройства.</p>
+      </div>
+
+      <div class="plan-divider"></div>
+
+      <ul class="plan-features">
+        <li><span class="check">✓</span><span><b>AI-агент Seeker v1</b> — читает файлы, вносит правки, объясняет шаги</span></li>
+        <li><span class="check">✓</span><span><b>2 000 000 токенов</b> на сеанс — большой запас на серьёзные задачи</span></li>
+        <li><span class="check">✓</span><span><b>Сброс лимита каждые 5 часов</b> — без ожидания суток</span></li>
+        <li><span class="check">✓</span><span><b>Мобильное приложение</b> с теми же проектами, что и на ПК</span></li>
+        <li><span class="check">✓</span><span><b>Редактор, терминал и поиск</b> по проекту — на всех устройствах</span></li>
+        <li><span class="check">✓</span><span><b>Правки под контролем</b> — принимайте или отклоняйте изменения</span></li>
+      </ul>
+    </div>
+
+    <div class="limits" id="limits">
+      <div class="limit-card reveal" data-delay="1" style="--fill:100%">
+        <div class="limit-head">
+          <h3>Лимит токенов</h3>
+          <span class="limit-value">2 000 000</span>
+        </div>
+        <p>Два миллиона токенов на одном сеансе. Хватает на большие рефакторинги, разбор чужого кода и генерацию целых модулей.</p>
+        <div class="bar"><span></span></div>
+      </div>
+
+      <div class="limit-card reveal" data-delay="2" style="--fill:100%">
+        <div class="limit-head">
+          <h3>Сброс лимита</h3>
+          <span class="limit-value">каждые 5 ч</span>
+        </div>
+        <p>Вместо суточного ожидания лимит обновляется каждые 5 часов — работа не встаёт на паузу.</p>
+        <div class="bar"><span></span></div>
+      </div>
+
+      <div class="limit-card reveal" data-delay="3" style="--fill:100%">
+        <div class="limit-head">
+          <h3>AI-агент Seeker v1</h3>
+          <span class="limit-value">ПК + телефон</span>
+        </div>
+        <p>Агент читает файлы проекта, вносит точечные правки и запускает команды — одинаково на десктопе и в приложении.</p>
+        <div class="bar"><span></span></div>
+      </div>
+
+      <div class="limit-card reveal" data-delay="4" style="--fill:100%">
+        <div class="limit-head">
+          <h3>Устройства</h3>
+          <span class="limit-value">ПК + телефон</span>
+        </div>
+        <p>Подписка одна. Проекты общие. Начинайте на компьютере — продолжайте с телефона.</p>
+        <div class="bar"><span></span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= ЧТО ВХОДИТ ================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Что даёт Pro</span>
+      <h2><span class="text-gradient">2 000 000 токенов</span> на сеанс</h2>
+      <p class="lead">Seeker Pro — не набор ограничений, а понятный лимит: два миллиона токенов на работу с агентом. Когда лимит израсходован, он обновляется каждые 5 часов.</p>
+    </div>
+
+    <div class="grid grid-3">
+      <article class="card reveal" data-delay="1">
+        <div class="card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/></svg>
+        </div>
+        <h3>AI-агент без пауз</h3>
+        <p>Никаких сеансов по таймеру: агент работает, пока не израсходован лимит токенов.</p>
+      </article>
+
+      <article class="card reveal" data-delay="2">
+        <div class="card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9M9.5 19V5M15 19v-7M20.5 19v-4"/></svg>
+        </div>
+        <h3>2 000 000 токенов</h3>
+        <p>Лимит на сеанс. Хватает на большие рефакторинги, разбор чужого кода и генерацию целых модулей.</p>
+      </article>
+
+      <article class="card reveal" data-delay="3">
+        <div class="card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 3.5V8h-4.5"/></svg>
+        </div>
+        <h3>Сброс каждые 5 часов</h3>
+        <p>Лимит обновляется каждые 5 часов. Не нужно ждать следующих суток, чтобы снова позвать агента.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Вопросы</span>
+      <h2>Коротко о <span class="text-gradient">важном</span></h2>
+    </div>
+
+    <div class="faq reveal">
+      <details open>
+        <summary>Сколько стоит Seeker Pro?</summary>
+        <div class="answer">
+          <p>1 199 ₽ в месяц или 11 999 ₽ в год. Годовая подписка выгоднее примерно на 2 389 ₽ — это как два месяца в подарок.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Что такое 2 000 000 токенов?</summary>
+        <div class="answer">
+          <p>Это лимит работы с агентом в Seeker Pro: два миллиона токенов на сеанс. Токены расходуются на чтение файлов, ответы агента и внесение правок. Когда лимит исчерпан, он сбрасывается каждые 5 часов.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Что произойдёт, когда закончатся 2 000 000 токенов?</summary>
+        <div class="answer">
+          <p>Ничего страшного: лимит обновляется каждые 5 часов автоматически. Редактор и проекты остаются доступны всегда — ограничение касается только запросов к агенту.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Мобильное приложение оплачивается отдельно?</summary>
+        <div class="answer">
+          <p>Нет. Одна подписка Seeker Pro работает и на ПК, и в мобильном приложении. В приложении открываются те же проекты, что и на компьютере.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Мои проекты точно синхронизируются с телефоном?</summary>
+        <div class="answer">
+          <p>Да. Мобильное приложение Seeker подключается к тем же проектам, что и десктоп: вы видите один список, редактируете те же файлы и работаете с тем же агентом.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Можно ли отменить подписку?</summary>
+        <div class="answer">
+          <p>Да, в любой момент. Подписка действует до конца оплаченного периода, после чего не продлевается.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Есть ли другие тарифы?</summary>
+        <div class="answer">
+          <p>Нет. У Seeker один тариф — Seeker Pro. Мы не дробим возможности на уровни: всё, что есть в продукте, доступно по подписке.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="cta-band reveal">
+      <h2>Возьмите Seeker Pro — <span class="text-gradient">и код всегда с вами</span></h2>
+      <p class="lead">1 199 ₽ в месяц или 11 999 ₽ в год. 2 000 000 токенов на сеанс, сброс каждые 5 часов, ПК и телефон.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary btn-lg" href="#buy">Оформить за 1 199 ₽ / мес</a>
+        <a class="btn btn-ghost btn-lg" href="index.html">Вернуться на главную</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">
+          <img class="logo-img" src="logo.png" alt="Логотип Seeker" width="32" height="32">
+          Seeker
+        </a>
+        <p>Редактор кода с AI-агентом Seeker v1. ПК и мобильное приложение работают с одними и теми же проектами.</p>
+      </div>
+
+      <div>
+        <h4>Продукт</h4>
+        <ul>
+          <li><a href="index.html#features">Возможности</a></li>
+          <li><a href="index.html#mobile">Мобильное приложение</a></li>
+          <li><a href="index.html#agent">Агент Seeker v1</a></li>
+          <li><a href="dashboard.html">Панель управления</a></li>
+          <li><a href="pricing.html">Подписка Pro</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Поддержка</h4>
+        <ul>
+          <li><a href="#faq">Вопросы и ответы</a></li>
+          <li><a href="#limits">Лимиты токенов</a></li>
+          <li><a href="payment-refund.html">Возврат средств</a></li>
+          <li><a href="payment-chargeback.html">Чарджбэк</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Компания</h4>
+        <ul>
+          <li><a href="index.html">О проекте</a></li>
+          <li><a href="pricing.html">Тарифы</a></li>
+          <li><a href="index.html">Контакты</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year">2025</span> Seeker. Все права защищены.</span>
+      <span class="tag"><i></i> Seeker v1 онлайн</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

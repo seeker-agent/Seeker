@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seeker — редактор кода с AI-агентом Seeker v1</title>
+<meta name="description" content="Seeker — редактор кода с AI-ассистентом Seeker v1 и мобильным приложением: те же проекты, что и на ПК. Редактируйте файлы и просите AI прямо с телефона.">
+<meta name="theme-color" content="#06030d">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="bg-layer" aria-hidden="true">
+  <span class="orb orb-1"></span>
+  <span class="orb orb-2"></span>
+  <span class="orb orb-3"></span>
+</div>
+
+<header class="nav" id="nav">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img class="logo-img" src="logo.png" alt="Логотип Seeker" width="34" height="34">
+      Seeker
+    </a>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#features">Возможности</a></li>
+        <li><a href="#mobile">Мобильное приложение</a></li>
+        <li><a href="#agent">Seeker v1</a></li>
+        <li><a href="pricing.html">Подписка</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="btn btn-ghost btn-dash" href="dashboard.html" aria-label="Панель управления" title="Панель управления">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/></svg>
+        <span class="btn-dash-label">Панель управления</span>
+      </a>
+      <a class="btn btn-primary" href="pricing.html">Попробовать Pro</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="nav-drawer" id="navDrawer">
+  <a href="#features">Возможности</a>
+  <a href="#mobile">Мобильное приложение</a>
+  <a href="#agent">Seeker v1</a>
+  <a href="pricing.html">Подписка и цены</a>
+  <a href="dashboard.html">Панель управления</a>
+  <a class="btn btn-primary btn-block" href="pricing.html">Оформить Seeker Pro</a>
+</div>
+
+<main>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="container hero-grid">
+
+    <div class="hero-copy reveal">
+      <span class="eyebrow"><span class="dot"></span>Seeker v1 уже внутри</span>
+      <h1>Код пишется там,<br>где мысль — <span class="text-gradient">в кармане</span></h1>
+      <p class="lead">
+        Seeker — редактор кода со встроенным AI-агентом. На ПК у вас полноценная среда
+        разработки, а в мобильном приложении — <b>те же проекты</b>: открывайте файлы,
+        правьте строки и просите Seeker v1 что-то сделать прямо с телефона.
+        В метро, в поезде, где угодно.
+      </p>
+
+      <div class="btn-row">
+        <a class="btn btn-primary btn-lg" href="pricing.html">
+          Начать с Seeker Pro
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#mobile">Как это работает</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat"><b>ПК + телефон</b><span>одни и те же проекты</span></div>
+        <div class="stat"><b>2 000 000</b><span>токенов на Pro</span></div>
+        <div class="stat"><b>5 ч</b><span>интервал сброса лимита</span></div>
+      </div>
+    </div>
+
+    <div class="phone-stage reveal" data-delay="2">
+      <div class="phone">
+        <div class="phone-notch" aria-hidden="true"></div>
+        <div class="phone-inner">
+          <img src="projectsscreen.jpg" alt="Список проектов в мобильном приложении Seeker">
+        </div>
+      </div>
+
+      <div class="phone phone-secondary">
+        <div class="phone-inner">
+          <img src="aiscreen.jpg" alt="AI-агент Seeker v1 в мобильном приложении">
+        </div>
+      </div>
+
+      <div class="float-card fc-1">
+        <span class="ico">◈</span>
+        <span>Проект синхронизирован<small>ПК → телефон</small></span>
+      </div>
+      <div class="float-card fc-2">
+        <span class="ico">✦</span>
+        <span>Seeker v1 правит файл<small>в реальном времени</small></span>
+      </div>
+      <div class="float-card fc-3">
+        <span class="ico">↑</span>
+        <span>29 файлов<small>в проекте</small></span>
+      </div>
+
+      <div class="phone-glow" aria-hidden="true"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="section" id="features">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Возможности</span>
+      <h2>Редактор, в котором <span class="text-gradient">есть с кем поговорить</span></h2>
+      <p class="lead">Привычная среда для кода — и агент, который не просто подсказывает, а делает: читает файлы, вносит правки, объясняет результат.</p>
+    </div>
+
+    <div class="grid grid-3">
+      <article class="card reveal" data-delay="1">
+        <div class="card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 3 12l5 6M16 6l5 6-5 6M14 4l-4 16"/></svg>
+        </div>
+        <h3>Редактор без тормозов</h3>
+        <p>Подсветка синтаксиса, поиск по проекту, дерево файлов и вкладки. Всё привычное — только быстрее и легче.</p>
+      </article>
+
+      <article class="card reveal" data-delay="2">
+        <div class="card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
+        </div>
+        <h3>AI-агент Seeker v1</h3>
+        <p>Понимает задачу целиком: сам открывает нужные файлы, предлагает и применяет изменения, комментирует шаги.</p>
+      </article>
+
+      <article class="card reveal" data-delay="3">
+        <div class="card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 5.5h2"/></svg>
+        </div>
+        <h3>Мобильное приложение</h3>
+        <p>Телефон — это второй редактор, а не просмотрщик. Те же проекты, те же файлы, тот же AI. Без ручных экспортов.</p>
+      </article>
+
+      <article class="card reveal" data-delay="1">
+        <div class="card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7.5A2.5 2.5 0 0 1 6.5 5h11A2.5 2.5 0 0 1 20 7.5v9A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5z"/><path d="M8 10l2 2-2 2M13 14h3"/></svg>
+        </div>
+        <h3>Терминал рядом</h3>
+        <p>Запускайте команды и сразу видьте вывод — в отдельной панели или прямо в диалоге с агентом.</p>
+      </article>
+
+      <article class="card reveal" data-delay="2">
+        <div class="card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6.5v5.2c0 4.3 3.1 7.4 7.5 9.3 4.4-1.9 7.5-5 7.5-9.3V6.5z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h3>Правки под контролем</h3>
+        <p>Агент показывает, что именно меняет. Принимайте, отклоняйте или уточняйте — ничего не происходит молча.</p>
+      </article>
+
+      <article class="card reveal" data-delay="3">
+        <div class="card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.8 13.2h6L10 22l8.2-11.2h-6z"/></svg>
+        </div>
+        <h3>2 000 000 токенов</h3>
+        <p>В Seeker Pro — лимит в два миллиона токенов на работу с агентом. Израсходовали — лимит обновляется каждые 5 часов.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MOBILE ================= -->
+<section class="section" id="mobile">
+  <div class="container mobile-grid">
+
+    <div class="phone-pair reveal">
+      <div class="phone">
+        <div class="phone-notch" aria-hidden="true"></div>
+        <div class="phone-inner">
+          <img src="projectsscreen.jpg" alt="Экран со списком проектов Seeker на телефоне">
+        </div>
+      </div>
+      <div class="phone">
+        <div class="phone-notch" aria-hidden="true"></div>
+        <div class="phone-inner">
+          <img src="aiscreen.jpg" alt="Диалог с AI-агентом Seeker v1 на телефоне">
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" data-delay="2">
+      <span class="eyebrow"><span class="dot"></span>Главная фишка</span>
+      <h2>Те же проекты — <span class="text-gradient">в кармане</span></h2>
+      <p class="lead">
+        Открыли проект на ПК — он уже доступен в мобильном приложении Seeker.
+        Правки с телефона подхватывает десктоп, а позвать агента можно в один тап:
+        «поправь вёрстку», «объясни этот модуль», «сделай тёмную тему».
+      </p>
+
+      <ul class="feature-list">
+        <li><span class="check">✓</span><span><b>Один список проектов на всё.</b> Телефон видит те же папки, что и ПК — без переносов.</span></li>
+        <li><span class="check">✓</span><span><b>Редактор, а не просмотр.</b> Открыть, изменить, сохранить — прямо с телефона.</span></li>
+        <li><span class="check">✓</span><span><b>Агент в чате.</b> Просите Seeker v1 изменить файл — он читает его и вносит правки.</span></li>
+        <li><span class="check">✓</span><span><b>Связь с ПК.</b> Изменения не расходятся: одно рабочее пространство на всех устройствах.</span></li>
+      </ul>
+
+      <div class="store-row">
+        <a class="store-btn" href="pricing.html">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.9c0-2.1 1.7-3.1 1.8-3.2-1-1.4-2.5-1.6-3-1.6-1.3-.1-2.5.7-3.1.7-.6 0-1.6-.7-2.7-.7-1.4 0-2.7.8-3.4 2.1-1.5 2.5-.4 6.2 1 8.2.7 1 1.6 2.1 2.7 2 1.1 0 1.5-.7 2.8-.7s1.6.7 2.7.7 1.9-1 2.6-2c.8-1.2 1.1-2.3 1.2-2.4-.1 0-2.6-1-2.6-3.1zM14.4 6.6c.6-.7 1-1.7.9-2.6-.9 0-1.9.6-2.5 1.3-.5.6-1 1.6-.9 2.5 1 .1 2-.5 2.5-1.2z"/></svg>
+          <span><small>Скачать для</small><strong>iPhone</strong></span>
+        </a>
+        <a class="store-btn" href="pricing.html">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.4 2.8c-.3.3-.4.8-.4 1.3v15.8c0 .5.1 1 .4 1.3l.1.1L13 12.1v-.2L4.5 2.7z"/><path d="m16.6 15.7-3-3 3-3 3.4 1.9c1 .5 1 1.6 0 2.2z"/><path d="M16.6 8.3 13.6 11.3 4.5 2.7c.4-.4 1-.4 1.6-.1z"/><path d="m13.6 12.7 3 3-9.1 5.1c-.6.3-1.2.2-1.6-.2z"/></svg>
+          <span><small>Скачать для</small><strong>Android</strong></span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= AGENT ================= -->
+<section class="section" id="agent">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Seeker v1</span>
+      <h2>Агент, который <span class="text-gradient">делает, а не подсказывает</span></h2>
+      <p class="lead">Вы описываете задачу словами — он находит файлы, вносит изменения и проверяет результат. На ПК и на телефоне одинаково.</p>
+    </div>
+
+    <div class="grid grid-2">
+      <article class="card reveal" data-delay="1">
+        <div class="card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.9 8.9 0 0 1-3.8-.9L3 21l1.9-5.2A8.4 8.4 0 0 1 12.5 3 8.4 8.4 0 0 1 21 11.5z"/></svg>
+        </div>
+        <h3>Понимает контекст проекта</h3>
+        <p>Не нужно объяснять, где лежит файл. Агент сам читает структуру, находит нужные модули и работает с реальным кодом.</p>
+      </article>
+
+      <article class="card reveal" data-delay="2">
+        <div class="card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4.5H6a1.5 1.5 0 0 0-1.5 1.5v13A1.5 1.5 0 0 0 6 20.5h12a1.5 1.5 0 0 0 1.5-1.5V16"/><path d="M14 3.5h6.5V10"/><path d="M20 4 11 13"/></svg>
+        </div>
+        <h3>Точечные правки</h3>
+        <p>Меняет именно то, что нужно, не переписывая файл целиком. Каждое изменение видно до применения.</p>
+      </article>
+
+      <article class="card reveal" data-delay="3">
+        <div class="card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M4.2 7.5l3.5 2M16.3 14.5l3.5 2M4.2 16.5l3.5-2M16.3 9.5l3.5-2"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3>Работает с терминалом</h3>
+        <p>Собирает проект, ставит зависимости, читает вывод ошибок — и исправляет по факту, а не наугад.</p>
+      </article>
+
+      <article class="card reveal" data-delay="4">
+        <div class="card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.8 13.2h6L10 22l8.2-11.2h-6z"/></svg>
+        </div>
+        <h3>Два миллиона токенов</h3>
+        <p>В Pro доступен лимит 2 000 000 токенов на работу с агентом. Лимит сбрасывается каждые 5 часов — без простоя.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRO TEASER ================= -->
+<section class="section">
+  <div class="container">
+    <div class="pro-teaser reveal">
+      <div>
+        <span class="eyebrow">Seeker Pro</span>
+        <h2>Один тариф. <span class="text-gradient">Всё включено.</span></h2>
+        <p class="lead">Полный доступ к агенту Seeker v1 на ПК и в мобильном приложении и большой лимит токенов — 2 000 000 на сеанс.</p>
+
+        <div class="pro-price-row">
+          <span class="price">1 199 ₽</span>
+          <span class="per">/ месяц</span>
+        </div>
+        <p class="per" style="margin-top:-8px;color:var(--dim);font-size:.88rem">или 11 999 ₽ за год — выгоднее на 2 месяца</p>
+
+        <ul class="pill-list">
+          <li>2 000 000 токенов</li>
+          <li>AI-агент Seeker v1</li>
+          <li>сброс каждые 5 часов</li>
+          <li>ПК + мобильное</li>
+        </ul>
+
+        <div class="btn-row">
+          <a class="btn btn-primary btn-lg" href="pricing.html">Оформить Seeker Pro</a>
+          <a class="btn btn-ghost btn-lg" href="pricing.html">Подробнее о тарифе</a>
+        </div>
+      </div>
+
+      <div class="ring-panel">
+        <div class="ring">
+          <div class="ring-inner">
+            <b>2 млн</b>
+            <span>токенов</span>
+          </div>
+        </div>
+        <p style="text-align:center;color:var(--dim);font-size:.84rem;margin:0">
+          2 000 000 токенов на сеанс<br>сброс каждые 5 часов
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="cta-band reveal">
+      <h2>Начните на ПК, продолжите <span class="text-gradient">с телефона</span></h2>
+      <p class="lead">Одна подписка Seeker Pro — агент на всех ваших устройствах: 2 000 000 токенов на сеанс. Без доплат за мобильное приложение.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary btn-lg" href="pricing.html">Оформить за 1 199 ₽ / мес</a>
+        <a class="btn btn-ghost btn-lg" href="pricing.html">Годовая подписка 11 999 ₽</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">
+          <img class="logo-img" src="logo.png" alt="Логотип Seeker" width="32" height="32">
+          Seeker
+        </a>
+        <p>Редактор кода с AI-агентом Seeker v1. ПК и мобильное приложение работают с одними и теми же проектами.</p>
+      </div>
+
+      <div>
+        <h4>Продукт</h4>
+        <ul>
+          <li><a href="#features">Возможности</a></li>
+          <li><a href="#mobile">Мобильное приложение</a></li>
+          <li><a href="#agent">Агент Seeker v1</a></li>
+          <li><a href="dashboard.html">Панель управления</a></li>
+          <li><a href="pricing.html">Подписка Pro</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Поддержка</h4>
+        <ul>
+          <li><a href="pricing.html#faq">Вопросы и ответы</a></li>
+          <li><a href="pricing.html#limits">Лимиты токенов</a></li>
+          <li><a href="payment-refund.html">Возврат средств</a></li>
+          <li><a href="payment-chargeback.html">Чарджбэк</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Компания</h4>
+        <ul>
+          <li><a href="index.html">О проекте</a></li>
+          <li><a href="pricing.html">Тарифы</a></li>
+          <li><a href="index.html">Контакты</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year">2025</span> Seeker. Все права защищены.</span>
+      <span class="tag"><i></i> Seeker v1 онлайн</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

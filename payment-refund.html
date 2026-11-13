@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Возврат средств за Seeker Pro — Seeker</title>
+<meta name="description" content="Как вернуть деньги за подписку Seeker Pro: условия, сроки и форма заявки на возврат.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#06030d">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="pay-tone-info">
+
+<div class="bg-layer" aria-hidden="true">
+  <span class="orb orb-1"></span>
+  <span class="orb orb-2"></span>
+  <span class="orb orb-3"></span>
+</div>
+
+<header class="nav" id="nav">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img class="logo-img" src="logo.png" alt="Логотип Seeker" width="34" height="34">
+      Seeker
+    </a>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="pricing.html">Подписка</a></li>
+        <li><a href="payment-refund.html" class="active">Возврат</a></li>
+        <li><a href="payment-chargeback.html">Чарджбэк</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="btn btn-ghost" href="dashboard.html">Панель управления</a>
+      <a class="btn btn-primary" href="pricing.html#buy">Оформить Pro</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="nav-drawer" id="navDrawer">
+  <a href="dashboard.html">Панель управления</a>
+  <a href="pricing.html#buy">Оформить Seeker Pro</a>
+  <a href="payment-success.html">Оплата прошла</a>
+  <a href="payment-fail.html">Оплата не прошла</a>
+  <a href="payment-chargeback.html">Чарджбэк</a>
+</div>
+
+<main class="pay-page">
+  <div class="container">
+    <div class="pay-wrap">
+
+      <div class="pay-hero reveal">
+        <span class="pay-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14l-4-4 4-4"/><path d="M5 10h9a5 5 0 0 1 0 10h-3"/></svg>
+        </span>
+        <h1>Возврат средств</h1>
+        <p class="lead">Вернём деньги за неиспользованный период подписки Seeker Pro. Заявку можно подать в любой момент — даже если подписка ещё активна.</p>
+        <span class="pay-pill" data-pay-pill data-state="info"><i aria-hidden="true"></i><span>Заявка рассматривается до 3 рабочих дней</span></span>
+      </div>
+
+      <section class="pay-card reveal" data-delay="1">
+        <h2>Когда возврат возможен</h2>
+        <p>Условия простые: возвращаем то, чем вы не пользовались.</p>
+
+        <dl class="pay-rows">
+          <div class="pay-row">
+            <dt>Сразу после оплаты</dt>
+            <dd>Полный возврат, если с момента платежа прошло не больше 14 дней</dd>
+          </div>
+          <div class="pay-row">
+            <dt>Позже 14 дней</dt>
+            <dd>Возврат за неиспользованный остаток оплаченного периода</dd>
+          </div>
+          <div class="pay-row">
+            <dt>Годовая подписка</dt>
+            <dd>Возврат пропорционально неиспользованным месяцам</dd>
+          </div>
+          <div class="pay-row">
+            <dt>Срок зачисления</dt>
+            <dd>3 рабочих дня на обработку, 3–10 рабочих дней на зачисление банком</dd>
+          </div>
+          <div class="pay-row">
+            <dt>Куда приходят деньги</dt>
+            <dd>На ту же карту, с которой была оплата</dd>
+          </div>
+          <div class="pay-row">
+            <dt>Комиссия</dt>
+            <dd>Не удерживаем: возвращается вся сумма по расчёту без сборов</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="pay-card reveal" data-delay="2">
+        <h2>Заявка на возврат</h2>
+        <p>Заполните поля — заявка уйдёт в поддержку автоматически. Номер заказа есть в письме после оплаты или на странице успешной оплаты.</p>
+
+        <form class="pay-form" data-refund-form novalidate>
+          <div class="pay-form-grid">
+            <label class="pay-field">
+              <span>Номер заказа</span>
+              <input type="text" name="order" inputmode="text" autocomplete="off" placeholder="Например, SB-240815-000123" required>
+            </label>
+
+            <label class="pay-field">
+              <span>Почта аккаунта</span>
+              <input type="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+            </label>
+
+            <label class="pay-field">
+              <span>Причина возврата</span>
+              <select name="reason">
+                <option value="accidental">Случайная оплата</option>
+                <option value="not_needed">Подписка больше не нужна</option>
+                <option value="duplicate">Двойное списание</option>
+                <option value="not_working">Не работает как ожидалось</option>
+                <option value="other">Другое</option>
+              </select>
+            </label>
+
+            <label class="pay-field">
+              <span>Дата оплаты <em>(необязательно)</em></span>
+              <input type="date" name="date">
+            </label>
+          </div>
+
+          <label class="pay-field">
+            <span>Комментарий <em>(необязательно)</em></span>
+            <textarea name="comment" rows="3" placeholder="Опишите ситуацию — так мы быстрее проверим платёж."></textarea>
+          </label>
+
+          <label class="pay-check">
+            <input type="checkbox" name="agree" required>
+            <span>Согласен с условиями возврата и обработкой данных заявки</span>
+          </label>
+
+          <div class="pay-actions">
+            <button type="submit" class="btn btn-primary">Отправить заявку</button>
+            <a class="btn btn-ghost" href="pricing.html">Вернуться к тарифам</a>
+          </div>
+
+          <p class="pay-note" data-refund-result hidden></p>
+        </form>
+      </section>
+
+      <section class="pay-card reveal" data-delay="3">
+        <h2>Как проходит возврат</h2>
+
+        <ol class="pay-steps">
+          <li><b>Заявка.</b> Вы отправляете форму — мы фиксируем обращение и проверяем платёж по номеру заказа.</li>
+          <li><b>Решение.</b> Отвечаем на почту аккаунта в течение 3 рабочих дней: подтверждаем возврат или объясняем расчёт.</li>
+          <li><b>Возврат.</b> Отправляем запрос платёжному провайдеру. Обычно деньги приходят за 3–10 рабочих дней.</li>
+          <li><b>Подписка.</b> После возврата Seeker Pro отключается, лимит токенов перестаёт действовать. Проекты и файлы остаются на месте.</li>
+        </ol>
+      </section>
+
+      <p class="pay-note">
+        Нужно быстрее? Напишите на <a href="mailto:support@seeker.ru">support@seeker.ru</a>
+        с темой «Возврат» и номером заказа. Уже подали в банк заявление на
+        <a href="payment-chargeback.html">чарджбэк</a>? Тогда сначала закройте обращение в банке —
+        два процесса одновременно банк не обработает.
+      </p>
+
+    </div>
+  </div>
+</main>
+
+<footer class="pay-mini-foot">
+  <div class="container">
+    <span>© <span data-pay-year>2025</span> Seeker. Все права защищены.</span>
+    <span>
+      <a href="pricing.html">Тарифы</a> ·
+      <a href="payment-success.html">Успешная оплата</a> ·
+      <a href="payment-fail.html">Неуспешная оплата</a> ·
+      <a href="payment-chargeback.html">Чарджбэк</a> ·
+      <a href="mailto:support@seeker.ru">Поддержка</a>
+    </span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/payment.js"></script>
+</body>
+</html>

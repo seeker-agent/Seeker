@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Панель управления — Seeker</title>
+<meta name="description" content="Панель управления Seeker: подписка Seeker Pro, лимит токенов, устройства и быстрые действия с AI-агентом Seeker v1.">
+<meta name="theme-color" content="#06030d">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="bg-layer" aria-hidden="true">
+  <span class="orb orb-1"></span>
+  <span class="orb orb-2"></span>
+  <span class="orb orb-3"></span>
+</div>
+
+<header class="nav" id="nav">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img class="logo-img" src="logo.png" alt="Логотип Seeker" width="34" height="34">
+      Seeker
+    </a>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html#features">Возможности</a></li>
+        <li><a href="index.html#mobile">Мобильное приложение</a></li>
+        <li><a href="index.html#agent">Seeker v1</a></li>
+        <li><a href="pricing.html">Подписка</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="btn btn-ghost btn-dash" href="dashboard.html" aria-label="Панель управления" aria-current="page" title="Панель управления">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/></svg>
+        <span class="btn-dash-label">Панель управления</span>
+      </a>
+      <a class="btn btn-primary" href="pricing.html">Оформить Pro</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="nav-drawer" id="navDrawer">
+  <a href="index.html#features">Возможности</a>
+  <a href="index.html#mobile">Мобильное приложение</a>
+  <a href="index.html#agent">Seeker v1</a>
+  <a href="pricing.html">Подписка и цены</a>
+  <a href="dashboard.html">Панель управления</a>
+  <a class="btn btn-primary btn-block" href="pricing.html">Оформить Seeker Pro</a>
+</div>
+
+<main>
+
+<section class="section auth-gate-section" id="authGate">
+  <div class="container">
+    <div class="auth-card reveal">
+      <span class="eyebrow"><span class="dot"></span>Вход в Seeker</span>
+      <h1>Аккаунт <span class="text-gradient">Seeker</span></h1>
+      <p class="lead">Панель управления открывается после входа. Один аккаунт — подписка, лимит токенов и устройства на ПК и в мобильном приложении.</p>
+
+      <button class="btn btn-google btn-lg" id="googleSignIn" type="button">
+        <svg class="google-ico" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+          <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+          <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+          <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.46-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+        </svg>
+        <span class="btn-google-label">Продолжить с Google</span>
+      </button>
+
+      <p class="auth-note" id="authNote">Проверяем вход…</p>
+      <div class="auth-error" id="authError" role="alert" hidden></div>
+
+      <ul class="auth-points">
+        <li>Google используем только для входа — пароль не запрашиваем</li>
+        <li>Сессия хранится в браузере и продлевается автоматически</li>
+        <li>Подписка Seeker Pro и лимит токенов привязаны к аккаунту</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div id="dashApp" hidden>
+
+<section class="page-head">
+  <div class="container reveal">
+    <span class="eyebrow"><span class="dot"></span>Личный кабинет</span>
+    <h1>Панель <span class="text-gradient">управления</span></h1>
+    <p class="lead">Всё о подписке, лимите токенов и устройствах — в одном месте. Агент Seeker v1 доступен на ПК и в мобильном приложении.</p>
+
+    <div class="auth-user" id="authUser" hidden>
+      <span class="auth-user-avatar" data-user-avatar aria-hidden="true">S</span>
+      <span class="auth-user-info">
+        <b data-user-name>Аккаунт Seeker</b>
+        <small data-user-email></small>
+      </span>
+      <span class="tag"><i></i> Вход выполнен</span>
+      <button class="btn btn-ghost btn-sm" id="signOut" type="button">Выйти</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="grid grid-2">
+
+      <article class="card reveal" data-delay="1">
+        <div class="card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="M2.5 10h19"/></svg>
+        </div>
+        <h3>Подписка</h3>
+        <p>Статус подписки берётся напрямую из базы Seeker — как только оплата проходит, он обновляется здесь.</p>
+
+        <div class="sub-status" id="subStatus" data-state="loading" aria-live="polite">
+          <span class="sub-dot" aria-hidden="true"></span>
+          <div class="sub-status-body">
+            <b id="subStatusTitle">Проверяем подписку в базе…</b>
+            <small id="subStatusMeta">Запрос к таблице subscriptions</small>
+          </div>
+          <span class="sub-badge" id="subStatusBadge" hidden></span>
+        </div>
+
+        <ul class="pill-list sub-details" id="subStatusDetails" hidden></ul>
+
+        <div class="pro-price-row">
+          <span class="price">1 199 ₽</span>
+          <span class="per">/ месяц</span>
+        </div>
+        <p class="per" style="color:var(--dim);font-size:.86rem;margin:-6px 0 0">или 11 999 ₽ за год — выгоднее на 2 месяца</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="pricing.html#buy" id="subStatusCta">Оформить Seeker Pro</a>
+          <button class="btn btn-ghost" id="subStatusReload" type="button">Обновить статус</button>
+        </div>
+        <p class="sub-foot"><a href="pricing.html#faq">Оплата и возврат</a></p>
+      </article>
+
+      <article class="card reveal" data-delay="2">
+        <div class="card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.8 13.2h6L10 22l8.2-11.2h-6z"/></svg>
+        </div>
+        <h3>Лимит токенов</h3>
+        <p>В Seeker Pro доступно <b>2 000 000 токенов</b> на работу с агентом. Израсходовали — лимит обновляется автоматически.</p>
+        <ul class="pill-list">
+          <li>2 000 000 токенов</li>
+          <li>сброс каждые 5 часов</li>
+          <li>ПК + мобильное</li>
+        </ul>
+        <div class="btn-row">
+          <a class="btn btn-ghost" href="pricing.html#limits">Как считается лимит</a>
+        </div>
+      </article>
+
+      <article class="card reveal" data-delay="3">
+        <div class="card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="13" height="10" rx="2"/><path d="M6 18h6"/><rect x="17.5" y="9" width="4" height="11" rx="1.5"/></svg>
+        </div>
+        <h3>Устройства</h3>
+        <p>Проекты общие для ПК и телефона: правки на одном устройстве сразу видны на другом.</p>
+        <ul class="feature-list">
+          <li><span class="check">✓</span><span><b>ПК</b> — редактор кода, терминал, вкладки.</span></li>
+          <li><span class="check">✓</span><span><b>Мобильное приложение</b> — те же проекты и агент.</span></li>
+        </ul>
+        <div class="btn-row">
+          <a class="btn btn-ghost" href="index.html#mobile">Скачать приложение</a>
+        </div>
+      </article>
+
+      <article class="card reveal" data-delay="4">
+        <div class="card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg>
+        </div>
+        <h3>Быстрые действия</h3>
+        <p>Попросить агента о правке можно в любой момент — он прочитает файлы проекта и предложит изменения.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="index.html#agent">Открыть Seeker v1</a>
+          <a class="btn btn-ghost" href="index.html#features">Возможности</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="cta-band reveal">
+      <h2>Один тариф — <span class="text-gradient">всё включено</span></h2>
+      <p class="lead">2 000 000 токенов на сеанс со сбросом каждые 5 часов, AI-агент Seeker v1 на ПК и в мобильном приложении.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary btn-lg" href="pricing.html">Перейти к тарифам</a>
+        <a class="btn btn-ghost btn-lg" href="index.html">На главную</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /#dashApp -->
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">
+          <img class="logo-img" src="logo.png" alt="Логотип Seeker" width="32" height="32">
+          Seeker
+        </a>
+        <p>Редактор кода с AI-агентом Seeker v1. ПК и мобильное приложение работают с одними и теми же проектами.</p>
+      </div>
+
+      <div>
+        <h4>Продукт</h4>
+        <ul>
+          <li><a href="index.html#features">Возможности</a></li>
+          <li><a href="index.html#mobile">Мобильное приложение</a></li>
+          <li><a href="index.html#agent">Агент Seeker v1</a></li>
+          <li><a href="dashboard.html">Панель управления</a></li>
+          <li><a href="pricing.html">Подписка Pro</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Поддержка</h4>
+        <ul>
+          <li><a href="pricing.html#faq">Вопросы и ответы</a></li>
+          <li><a href="pricing.html#limits">Лимиты токенов</a></li>
+          <li><a href="pricing.html">Оплата и возврат</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Компания</h4>
+        <ul>
+          <li><a href="index.html">О проекте</a></li>
+          <li><a href="pricing.html">Тарифы</a></li>
+          <li><a href="index.html">Контакты</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year">2025</span> Seeker. Все права защищены.</span>
+      <span class="tag"><i></i> Seeker v1 онлайн</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script type="module" src="assets/js/auth.js"></script>
+<script type="module" src="assets/js/subscription.js"></script>
+</body>
+</html>

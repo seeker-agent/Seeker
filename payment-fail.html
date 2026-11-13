@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Платёж не прошёл — Seeker</title>
+<meta name="description" content="Оплата Seeker Pro не завершена: деньги не списаны. Причина отказа и как повторить платёж.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#06030d">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="pay-tone-fail">
+
+<div class="bg-layer" aria-hidden="true">
+  <span class="orb orb-1"></span>
+  <span class="orb orb-2"></span>
+  <span class="orb orb-3"></span>
+</div>
+
+<header class="nav" id="nav">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img class="logo-img" src="logo.png" alt="Логотип Seeker" width="34" height="34">
+      Seeker
+    </a>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="pricing.html">Подписка</a></li>
+        <li><a href="payment-refund.html">Возврат</a></li>
+        <li><a href="payment-chargeback.html">Чарджбэк</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="btn btn-ghost" href="dashboard.html">Панель управления</a>
+      <a class="btn btn-primary" href="pricing.html#buy">Оплатить снова</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="nav-drawer" id="navDrawer">
+  <a href="dashboard.html">Панель управления</a>
+  <a href="pricing.html#buy">Оплатить Seeker Pro</a>
+  <a href="payment-refund.html">Возврат средств</a>
+  <a href="payment-chargeback.html">Чарджбэк</a>
+</div>
+
+<main class="pay-page">
+  <div class="container">
+    <div class="pay-wrap" data-pay-verify="/api/payment-status">
+
+      <div class="pay-hero reveal">
+        <span class="pay-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </span>
+        <h1>Платёж не прошёл</h1>
+        <p class="lead">Оплата не завершена, подписка Seeker Pro не активирована. Деньги за неуспешный платёж не списываются — банк только блокирует сумму и снимает блокировку сам.</p>
+        <span class="pay-pill" data-pay-pill data-state="fail"><i aria-hidden="true"></i><span>Оплата не завершена</span></span>
+      </div>
+
+      <section class="pay-card reveal" data-delay="1">
+        <h2>Детали попытки</h2>
+        <p>Эти данные пригодятся, если понадобится поддержка банка или наша.</p>
+
+        <dl class="pay-rows">
+          <div class="pay-row">
+            <dt>Номер заказа</dt>
+            <dd>
+              <span class="pay-mono" data-pay-field="order">—</span>
+              <button type="button" class="pay-copy" data-pay-copy="order">Копировать</button>
+            </dd>
+          </div>
+          <div class="pay-row" hidden>
+            <dt>Причина отказа</dt>
+            <dd data-pay-field="reason">—</dd>
+          </div>
+          <div class="pay-row" hidden>
+            <dt>Тариф</dt>
+            <dd data-pay-field="plan">—</dd>
+          </div>
+          <div class="pay-row" hidden>
+            <dt>Сумма</dt>
+            <dd data-pay-field="amount">—</dd>
+          </div>
+          <div class="pay-row" hidden>
+            <dt>Почта плательщика</dt>
+            <dd data-pay-field="email">—</dd>
+          </div>
+          <div class="pay-row" hidden>
+            <dt>Дата попытки</dt>
+            <dd data-pay-field="date">—</dd>
+          </div>
+        </dl>
+
+        <div class="pay-actions">
+          <a class="btn btn-primary" href="pricing.html#buy">Повторить оплату</a>
+          <a class="btn btn-ghost" href="dashboard.html">В панель управления</a>
+        </div>
+      </section>
+
+      <section class="pay-card reveal" data-delay="2">
+        <h2>Почему так бывает</h2>
+        <p>Чаще всего платёж отклоняет банк — на стороне Seeker ничего не сломано.</p>
+
+        <ol class="pay-steps">
+          <li><b>Недостаточно средств или лимит по карте.</b> Проверьте баланс и суточный лимит на онлайн-покупки в приложении банка.</li>
+          <li><b>Банк не пропустил операцию.</b> Повторите платёж или используйте карту другого банка — иногда помогает именно смена карты.</li>
+          <li><b>Не пройдена проверка 3-D Secure.</b> Подтвердите операцию в приложении банка и не закрывайте окно до конца проверки.</li>
+          <li><b>Истёк срок действия карты или неверные данные.</b> Обновите реквизиты и попробуйте снова.</li>
+          <li><b>Операция показалась банку подозрительной.</b> Позвоните в банк, подтвердите платёж и повторите попытку.</li>
+        </ol>
+      </section>
+
+      <p class="pay-note pay-note-warn" data-pay-verified hidden>
+        <b>Статус проверен в платёжном сервисе:</b> платёж не подтверждён. Можно спокойно повторить оплату.
+      </p>
+
+      <p class="pay-note pay-note-warn" data-pay-note-offline hidden>
+        Подтверждение от платёжного сервиса получить не удалось — показана причина из ссылки возврата.
+        Перед повторной оплатой проверьте статус подписки в панели управления.
+      </p>
+
+      <p class="pay-note pay-note-warn">
+        <b>Деньги всё-таки списались?</b> Такое бывает при сбое связи между банком и платёжным шлюзом:
+        банк вернёт заблокированную сумму сам, обычно в течение 1–3 рабочих дней.
+        Если списание прошло окончательно — напишите на
+        <a href="mailto:support@seeker.ru">support@seeker.ru</a> с номером заказа: зачислим подписку или оформим
+        <a href="payment-refund.html">возврат</a>.
+      </p>
+
+    </div>
+  </div>
+</main>
+
+<footer class="pay-mini-foot">
+  <div class="container">
+    <span>© <span data-pay-year>2025</span> Seeker. Все права защищены.</span>
+    <span>
+      <a href="pricing.html">Тарифы</a> ·
+      <a href="payment-refund.html">Возврат</a> ·
+      <a href="payment-chargeback.html">Чарджбэк</a> ·
+      <a href="mailto:support@seeker.ru">Поддержка</a>
+    </span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/payment.js"></script>
+</body>
+</html>

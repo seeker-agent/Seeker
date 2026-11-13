@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Оплата прошла успешно — Seeker</title>
+<meta name="description" content="Платёж принят, подписка Seeker Pro активирована. Детали платежа и что делать дальше.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#06030d">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="pay-tone-success">
+
+<div class="bg-layer" aria-hidden="true">
+  <span class="orb orb-1"></span>
+  <span class="orb orb-2"></span>
+  <span class="orb orb-3"></span>
+</div>
+
+<header class="nav" id="nav">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img class="logo-img" src="logo.png" alt="Логотип Seeker" width="34" height="34">
+      Seeker
+    </a>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="pricing.html">Подписка</a></li>
+        <li><a href="payment-refund.html">Возврат</a></li>
+        <li><a href="payment-chargeback.html">Чарджбэк</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="btn btn-ghost" href="pricing.html">Тарифы</a>
+      <a class="btn btn-primary" href="dashboard.html">В панель управления</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="nav-drawer" id="navDrawer">
+  <a href="dashboard.html">Панель управления</a>
+  <a href="pricing.html">Подписка Pro</a>
+  <a href="payment-refund.html">Возврат средств</a>
+  <a href="payment-chargeback.html">Чарджбэк</a>
+</div>
+
+<main class="pay-page">
+  <div class="container">
+    <div class="pay-wrap" data-pay-verify="/api/payment-status">
+
+      <div class="pay-hero reveal">
+        <span class="pay-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>
+        </span>
+        <h1>Оплата прошла успешно</h1>
+        <p class="lead">Seeker Pro оплачен. Подписка привязана к аккаунту Seeker — в редакторе сразу доступны 2 000 000 токенов на сеанс, сброс лимита каждые 5 часов и мобильное приложение.</p>
+        <span class="pay-pill" data-pay-pill data-state="success"><i aria-hidden="true"></i><span>Оплата подтверждена</span></span>
+      </div>
+
+      <section class="pay-card reveal" data-delay="1">
+        <h2>Детали платежа</h2>
+        <p>Сохраните номер заказа — он понадобится для возврата или обращения в поддержку.</p>
+
+        <dl class="pay-rows">
+          <div class="pay-row">
+            <dt>Номер заказа</dt>
+            <dd>
+              <span class="pay-mono" data-pay-field="order">—</span>
+              <button type="button" class="pay-copy" data-pay-copy="order">Копировать</button>
+            </dd>
+          </div>
+          <div class="pay-row" hidden>
+            <dt>Тариф</dt>
+            <dd data-pay-field="plan">—</dd>
+          </div>
+          <div class="pay-row" hidden>
+            <dt>Сумма</dt>
+            <dd data-pay-field="amount">—</dd>
+          </div>
+          <div class="pay-row" hidden>
+            <dt>Почта плательщика</dt>
+            <dd data-pay-field="email">—</dd>
+          </div>
+          <div class="pay-row" hidden>
+            <dt>Дата оплаты</dt>
+            <dd data-pay-field="date">—</dd>
+          </div>
+        </dl>
+
+        <div class="pay-actions">
+          <a class="btn btn-primary" href="dashboard.html">Перейти в панель управления</a>
+          <a class="btn btn-ghost" href="pricing.html#limits">Посмотреть лимиты</a>
+        </div>
+      </section>
+
+      <section class="pay-card reveal" data-delay="2">
+        <h2>Что дальше</h2>
+        <p>Три шага — и можно работать с агентом.</p>
+
+        <ol class="pay-steps">
+          <li><b>Откройте панель управления.</b> Войдите тем же аккаунтом, что указывали при оплате — статус подписки подтянется из базы автоматически.</li>
+          <li><b>Проверьте статус подписки.</b> В карточке «Подписка» должно быть «Активна» и дата окончания оплаченного периода.</li>
+          <li><b>Запустите Seeker v1.</b> Откройте проект в редакторе и позовите агента — лимит токенов уже включает оплаченный период.</li>
+        </ol>
+      </section>
+
+      <p class="pay-note" data-pay-verified hidden>
+        <b>Статус подтверждён платёжным сервисом.</b> Данные выше обновлены напрямую из платёжной системы.
+      </p>
+
+      <p class="pay-note" data-pay-note-offline hidden>
+        Показаны данные из ссылки возврата: подтверждение от платёжного сервиса получить не удалось.
+        Если статус подписки в панели управления не изменился в течение 10 минут — напишите в поддержку.
+      </p>
+
+      <p class="pay-note">
+        Не пришло подтверждение на почту или подписка не появилась? Напишите на
+        <a href="mailto:support@seeker.ru">support@seeker.ru</a> и приложите номер заказа —
+        проверим платёж вручную. Возврат оформляется на странице
+        <a href="payment-refund.html">«Возврат средств»</a>.
+      </p>
+
+    </div>
+  </div>
+</main>
+
+<footer class="pay-mini-foot">
+  <div class="container">
+    <span>© <span data-pay-year>2025</span> Seeker. Все права защищены.</span>
+    <span>
+      <a href="pricing.html">Тарифы</a> ·
+      <a href="payment-refund.html">Возврат</a> ·
+      <a href="payment-chargeback.html">Чарджбэк</a> ·
+      <a href="mailto:support@seeker.ru">Поддержка</a>
+    </span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/payment.js"></script>
+</body>
+</html>

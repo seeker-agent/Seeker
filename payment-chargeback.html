@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Чарджбэк (оспоривание платежа) — Seeker</title>
+<meta name="description" content="Что делать, если банк оспаривает платёж за Seeker Pro: порядок действий, сроки и как связаться с поддержкой.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#06030d">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="pay-tone-warn">
+
+<div class="bg-layer" aria-hidden="true">
+  <span class="orb orb-1"></span>
+  <span class="orb orb-2"></span>
+  <span class="orb orb-3"></span>
+</div>
+
+<header class="nav" id="nav">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img class="logo-img" src="logo.png" alt="Логотип Seeker" width="34" height="34">
+      Seeker
+    </a>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="pricing.html">Подписка</a></li>
+        <li><a href="payment-refund.html">Возврат</a></li>
+        <li><a href="payment-chargeback.html" class="active">Чарджбэк</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="btn btn-ghost" href="dashboard.html">Панель управления</a>
+      <a class="btn btn-primary" href="payment-refund.html">Оформить возврат</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="nav-drawer" id="navDrawer">
+  <a href="dashboard.html">Панель управления</a>
+  <a href="payment-refund.html">Возврат средств</a>
+  <a href="payment-success.html">Оплата прошла</a>
+  <a href="payment-fail.html">Оплата не прошла</a>
+  <a href="pricing.html#buy">Оформить Seeker Pro</a>
+</div>
+
+<main class="pay-page">
+  <div class="container">
+    <div class="pay-wrap">
+
+      <div class="pay-hero reveal">
+        <span class="pay-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 4.4-3.2 7.9-8 9-4.8-1.1-8-4.6-8-9V7l8-4z"/><path d="M12 8.5v4M12 16h.01"/></svg>
+        </span>
+        <h1>Чарджбэк — <span class="text-gradient">оспоривание платежа</span></h1>
+        <p class="lead">Чарджбэк — это возврат денег через банк, когда платёж оспаривается со стороны плательщика. Разбираемся без конфликта: чаще всего вопрос решается обычным возвратом за один день.</p>
+        <span class="pay-pill" data-pay-pill data-state="pending"><i aria-hidden="true"></i><span>Обращение рассматривает банк</span></span>
+      </div>
+
+      <section class="pay-card reveal" data-delay="1">
+        <h2>Сначала — попробуйте обычный возврат</h2>
+        <p>Возврат через нас быстрее и без бумаг: 3 рабочих дня на решение вместо 30–60 дней банковской проверки.</p>
+
+        <div class="pay-actions">
+          <a class="btn btn-primary" href="payment-refund.html">Заявка на возврат</a>
+          <a class="btn btn-ghost" href="mailto:support@seeker.ru?subject=Чарджбэк%20по%20платежу%20Seeker%20Pro">Написать в поддержку</a>
+        </div>
+
+        <p class="pay-card-note" style="margin-top:16px">
+          Пока идёт чарджбэк, новый возврат по тому же платежу оформить нельзя: банк уже удерживает сумму.
+          Напишите нам — мы подскажем, на каком этапе обращение.
+        </p>
+      </section>
+
+      <section class="pay-card reveal" data-delay="2">
+        <h2>Ваше обращение</h2>
+        <p>Данные подставятся автоматически, если вы пришли по ссылке из письма банка или поддержки.</p>
+
+        <dl class="pay-rows">
+          <div class="pay-row" hidden>
+            <dt>Номер обращения</dt>
+            <dd>
+              <span class="pay-mono" data-pay-field="case">—</span>
+              <button type="button" class="pay-copy" data-pay-copy="case">Копировать</button>
+            </dd>
+          </div>
+          <div class="pay-row" hidden>
+            <dt>Номер заказа</dt>
+            <dd>
+              <span class="pay-mono" data-pay-field="order">—</span>
+              <button type="button" class="pay-copy" data-pay-copy="order">Копировать</button>
+            </dd>
+          </div>
+          <div class="pay-row" hidden>
+            <dt>Сумма спора</dt>
+            <dd data-pay-field="amount">—</dd>
+          </div>
+          <div class="pay-row" hidden>
+            <dt>Почта плательщика</dt>
+            <dd data-pay-field="email">—</dd>
+          </div>
+          <div class="pay-row" hidden>
+            <dt>Дата платежа</dt>
+            <dd data-pay-field="date">—</dd>
+          </div>
+        </dl>
+
+        <p class="pay-note pay-note-warn" data-pay-empty hidden>
+          Номер обращения не передан в ссылке. Впишите его в письмо поддержки — так мы найдём спор быстрее.
+        </p>
+      </section>
+
+      <section class="pay-card reveal" data-delay="3">
+        <h2>Как проходит разбор</h2>
+
+        <ol class="pay-steps">
+          <li><b>Банк принимает заявление.</b> Сумма блокируется на стороне банка, у нас появляется уведомление о споре.</li>
+          <li><b>Мы отправляем доказательства.</b> Платёжный провайдер передаёт данные операции, согласие с условиями и историю использования подписки.</li>
+          <li><b>Банк выносит решение.</b> Обычно 30–60 дней. Если оплата была ошибочной — чарджбэк удовлетворяют, деньги возвращаются на карту.</li>
+          <li><b>Подписка.</b> На время разбора доступ к Seeker Pro может быть приостановлен, чтобы не было повторных списаний. Проекты и файлы сохраняются.</li>
+        </ol>
+      </section>
+
+      <section class="pay-card reveal" data-delay="4">
+        <h2>Что приложить в письме</h2>
+        <p>Это ускорит разбор: чем больше данных, тем меньше уточнений.</p>
+
+        <ul class="pay-list">
+          <li>Номер заказа или номер обращения банка.</li>
+          <li>Дата и сумма платежа — как в выписке банка.</li>
+          <li>Почта аккаунта Seeker, на который оформлялась подписка.</li>
+          <li>Последние 4 цифры карты (полный номер не нужен — мы его не храним).</li>
+          <li>Короткое описание: ошибочная оплата, неизвестное списание, двойное списание.</li>
+        </ul>
+
+        <div class="pay-actions">
+          <a class="btn btn-primary" href="mailto:support@seeker.ru?subject=Чарджбэк%20по%20платежу%20Seeker%20Pro">Написать в поддержку</a>
+          <a class="btn btn-ghost" href="pricing.html#faq">Вопросы и ответы</a>
+        </div>
+      </section>
+
+      <p class="pay-note">
+        Если списание кажется незнакомым — начните со страницы <a href="payment-fail.html">неуспешной оплаты</a>:
+        возможно, банк только заблокировал сумму, и она вернётся сама без заявления.
+        Полные условия оплаты и возврата — на странице <a href="payment-refund.html">«Возврат средств»</a>.
+      </p>
+
+    </div>
+  </div>
+</main>
+
+<footer class="pay-mini-foot">
+  <div class="container">
+    <span>© <span data-pay-year>2025</span> Seeker. Все права защищены.</span>
+    <span>
+      <a href="pricing.html">Тарифы</a> ·
+      <a href="payment-success.html">Успешная оплата</a> ·
+      <a href="payment-fail.html">Неуспешная оплата</a> ·
+      <a href="payment-refund.html">Возврат</a> ·
+      <a href="mailto:support@seeker.ru">Поддержка</a>
+    </span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/payment.js"></script>
+<script>
+  /* Если в ссылке нет данных о спор — показываем подсказку вместо пустой таблицы */
+  document.addEventListener("DOMContentLoaded", function () {
+    var box = document.querySelector("[data-pay-empty]");
+    var rows = document.querySelectorAll(".pay-row:not([hidden])");
+    if (box && rows.length === 0) box.hidden = false;
+  });
+</script>
+</body>
+</html>
