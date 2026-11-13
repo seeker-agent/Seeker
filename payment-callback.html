@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Обработка ответа платёжной системы — Seeker</title>
+<meta name="description" content="Служебная страница: принимает ответ платёжного провайдера, приводит его к общему виду и перенаправляет на страницу результата оплаты.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#06030d">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="pay-tone-info">
+
+<div class="bg-layer" aria-hidden="true">
+  <span class="orb orb-1"></span>
+  <span class="orb orb-2"></span>
+  <span class="orb orb-3"></span>
+</div>
+
+<header class="nav" id="nav">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img class="logo-img" src="logo.png" alt="Логотип Seeker" width="34" height="34">
+      Seeker
+    </a>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="pricing.html">Подписка</a></li>
+        <li><a href="payment-refund.html">Возврат</a></li>
+        <li><a href="payment-chargeback.html">Чарджбэк</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="btn btn-ghost" href="pricing.html">Тарифы</a>
+      <a class="btn btn-primary" href="dashboard.html">В панель управления</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="nav-drawer" id="navDrawer">
+  <a href="dashboard.html">Панель управления</a>
+  <a href="pricing.html">Подписка Pro</a>
+  <a href="payment-refund.html">Возврат средств</a>
+  <a href="payment-chargeback.html">Чарджбэк</a>
+</div>
+
+<main class="pay-page">
+  <div class="container">
+    <div class="pay-wrap" data-pay-callback>
+
+      <div class="pay-hero reveal">
+        <span class="pay-icon" data-cb-icon aria-hidden="true">
+          <svg class="pay-spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 3a9 9 0 1 0 9 9"/></svg>
+        </span>
+        <h1 data-cb-title>Обрабатываем ответ платёжной системы</h1>
+        <p class="lead" data-cb-lead>
+          Приняли ответ платёжного провайдера, приводим его к общему виду и открываем страницу результата.
+          Обычно это занимает меньше секунды.
+        </p>
+        <span class="pay-pill" data-cb-pill data-state="pending"><i aria-hidden="true"></i><span>Проверяем статус</span></span>
+      </div>
+
+      <section class="pay-card reveal" data-delay="1" data-cb-details hidden>
+        <h2>Что пришло от платёжного сервиса</h2>
+        <p>Эти данные передал провайдер. Если чего-то нет — значит, он это поле не отправил.</p>
+
+        <dl class="pay-rows">
+          <div class="pay-row">
+            <dt>Номер заказа</dt>
+            <dd>
+              <span class="pay-mono" data-cb-field="order">—</span>
+              <button type="button" class="pay-copy" data-cb-copy="order">Копировать</button>
+            </dd>
+          </div>
+          <div class="pay-row" hidden>
+            <dt>Статус от провайдера</dt>
+            <dd data-cb-field="rawStatus">—</dd>
+          </div>
+          <div class="pay-row" hidden>
+            <dt>Распознанный статус</dt>
+            <dd data-cb-field="status">—</dd>
+          </div>
+          <div class="pay-row" hidden>
+            <dt>Тариф</dt>
+            <dd data-cb-field="plan">—</dd>
+          </div>
+          <div class="pay-row" hidden>
+            <dt>Сумма</dt>
+            <dd data-cb-field="amount">—</dd>
+          </div>
+          <div class="pay-row" hidden>
+            <dt>Почта плательщика</dt>
+            <dd data-cb-field="email">—</dd>
+          </div>
+          <div class="pay-row" hidden>
+            <dt>Дата</dt>
+            <dd data-cb-field="date">—</dd>
+          </div>
+          <div class="pay-row" hidden>
+            <dt>Причина отказа</dt>
+            <dd data-cb-field="reason">—</dd>
+          </div>
+          <div class="pay-row" hidden>
+            <dt>Номер возврата</dt>
+            <dd data-cb-field="refundId">—</dd>
+          </div>
+          <div class="pay-row" hidden>
+            <dt>Номер обращения</dt>
+            <dd data-cb-field="caseId">—</dd>
+          </div>
+          <div class="pay-row" hidden>
+            <dt>Куда перенаправляем</dt>
+            <dd class="pay-mono" data-cb-field="target">—</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="pay-card reveal" data-delay="2" data-cb-manual hidden>
+        <h2 data-cb-manual-title>Не хватает данных, чтобы открыть результат</h2>
+        <p data-cb-manual-text>
+          В ссылке возврата нет номера заказа, поэтому автоматически определить результат нельзя.
+          Откройте нужную страницу вручную или напишите в поддержку — найдём платёж по почте.
+        </p>
+
+        <div class="pay-actions">
+          <a class="btn btn-primary" data-cb-continue hidden>Открыть страницу результата</a>
+          <a class="btn btn-primary" href="payment-success.html">Оплата прошла</a>
+          <a class="btn btn-ghost" href="payment-fail.html">Оплата не прошла</a>
+          <a class="btn btn-ghost" href="payment-refund.html">Возврат средств</a>
+          <a class="btn btn-ghost" href="dashboard.html">Панель управления</a>
+        </div>
+      </section>
+
+      <p class="pay-note" data-cb-note hidden></p>
+
+      <p class="pay-note">
+        Страница служебная — в поиске её нет. Если деньги списались, а результат не открылся,
+        напишите на <a href="mailto:support@seeker.ru">support@seeker.ru</a> и приложите номер заказа
+        из письма банка. Возврат оформляется на странице <a href="payment-refund.html">«Возврат средств»</a>.
+      </p>
+
+    </div>
+  </div>
+</main>
+
+<footer class="pay-mini-foot">
+  <div class="container">
+    <span>© <span data-pay-year>2025</span> Seeker. Все права защищены.</span>
+    <span>
+      <a href="pricing.html">Тарифы</a> ·
+      <a href="payment-refund.html">Возврат</a> ·
+      <a href="payment-chargeback.html">Чарджбэк</a> ·
+      <a href="mailto:support@seeker.ru">Поддержка</a>
+    </span>
+  </div>
+</footer>
+
+<script src="assets/js/callback-config.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/payment-callback.js"></script>
+</body>
+</html>
