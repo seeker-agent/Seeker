@@ -181,4 +181,12 @@ if (lib) {
 
   setBusy(false);
   setButtonsEnabled();
+
+  /* Подсказка-адрес (только при ?debug=1): этот URL должен быть в Supabase → URL Configuration */
+  const redirectHint = document.querySelector("[data-auth-redirect]");
+  if (redirectHint && /[?&]debug\b/.test(window.location.search)) {
+    redirectHint.textContent = lib.authRedirectUrl();
+    redirectHint.hidden = false;
+    if (redirectHint.parentElement) redirectHint.parentElement.hidden = false;
+  }
 }

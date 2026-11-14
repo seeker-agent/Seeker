@@ -245,13 +245,109 @@
     if (orderInput && orderId && !orderInput.value) orderInput.value = orderId;
     if (reasonSelect && reasonCode && !reasonSelect.value) reasonSelect.value = "other";
 
-    var say = function (text, tone) {
+    var say = function (text, tone, asHtml) {
       if (!result) return;
       result.hidden = false;
-      result.textContent = text;
+      if (asHtml) result.innerHTML = text;
+      else result.textContent = text;
       result.classList.remove("pay-note-fail", "pay-note-warn");
       if (tone === "fail") result.classList.add("pay-note-fail");
       if (tone === "warn") result.classList.add("pay-note-warn");
+    };
+
+    /* ---------- куда реально уходит заявка ---------- */
+
+    var cfg = function () {
+      var c = window.SEEKER_REFUND || {};
+      return {
+        endpoint: c.endpoint || "",
+        supabaseUrl: c.supabaseUrl || "",
+        supabaseKey: c.supabaseKey || "",
+        table: c.table || "refund_requests",
+        fallbackEmail: c.fallbackEmail || "support@seeker.ru"
+      };
+    };
+
+    /* письмо как резервный канал — с уже заполненными полями */
+    var mailtoFor = function (payload) {
+      var to = cfg().fallbackEmail;
+      var body = [
+        "Номер заказа: " + (payload.order || "—"),
+        "Почта аккаунта: " + (payload.email || "—"),
+        "Причина: " + (payload.reason || "—"),
+        "Дата оплаты: " + (payload.date || "—"),
+        "",
+        payload.comment || "(без комментария)"
+      ].join("\n");
+      return (
+        "mailto:" +
+        to +
+        "?subject=" +
+        encodeURIComponent("Возврат по заказу " + (payload.order || "")) +
+        "&body=" +
+        encodeURIComponent(body)
+      );
+    };
+
+    var shortId = function (id) {
+      if (!id) return "";
+      return "RF-" + String(id).replace(/-/g, "").slice(0, 8).toUpperCase();
+    };
+
+    var sendRefund = function (payload) {
+      var c = cfg();
+      var row = {
+        kind: "refund",
+        order_ref: payload.order,
+        email: payload.email,
+        reason: payload.reason || null,
+        comment: payload.comment || null,
+        paid_on: payload.date || null,
+        page: String(window.location.href).slice(0, 500),
+        user_agent: String(navigator.userAgent || "").slice(0, 300)
+      };
+
+      if (c.endpoint) {
+        return fetch(c.endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(row)
+        }).then(function (res) {
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          return res.json().catch(function () {
+            return {};
+          });
+        }).then(function (data) {
+          return { refundId: shortId(data && (data.refundId || data.id || data.reference)) };
+        });
+      }
+
+      if (c.supabaseUrl && c.supabaseKey) {
+        return fetch(String(c.supabaseUrl).replace(/\/+$/, "") + "/rest/v1/" + c.table, {
+          method: "POST",
+          headers: {
+            apikey: c.supabaseKey,
+            Authorization: "Bearer " + c.supabaseKey,
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Prefer: "return=representation"
+          },
+          body: JSON.stringify([row])
+        }).then(function (res) {
+          return res.json().catch(function () {
+            return null;
+          }).then(function (data) {
+            if (!res.ok) {
+              var msg = (data && (data.message || data.hint || data.details)) || "HTTP " + res.status;
+              throw new Error(msg);
+            }
+            var first = Array.isArray(data) ? data[0] : data;
+            return { refundId: shortId(first && first.id) };
+          });
+        });
+      }
+
+      return Promise.reject(new Error("not-configured"));
     };
 
     refundForm.addEventListener("submit", function (event) {
@@ -267,6 +363,7 @@
         order: value("order"),
         email: value("email"),
         reason: value("reason"),
+        date: value("date"),
         comment: value("comment")
       };
 
@@ -288,40 +385,35 @@
         }
       };
 
-      fetch("/api/refund", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        credentials: "same-origin",
-        body: JSON.stringify(payload)
-      })
-        .then(function (res) {
-          return res.json().then(function (data) {
-            return { ok: res.ok, data: data };
-          });
-        })
+      sendRefund(payload)
         .then(function (res) {
           restore();
-          if (!res.ok || !res.data || !res.data.ok) {
-            say(
-              (res.data && res.data.message) ||
-                "Не удалось отправить заявку. Напишите нам на support@seeker.ru — оформим возврат вручную.",
-              "fail"
-            );
-            return;
-          }
           refundForm.reset();
           say(
             "Заявка принята" +
-              (res.data.refundId ? " №" + res.data.refundId : "") +
-              ". Возврат занимает до 3 рабочих дней, деньги приходят на ту же карту в течение 3–10 рабочих дней.",
-            ""
+              (res.refundId ? " №" + res.refundId : "") +
+              ". Возврат занимает до 3 рабочих дней, деньги приходят на ту же карту в течение 3–10 рабочих дней." +
+              ' Уточнить статус можно на почте <a href="mailto:' +
+              cfg().fallbackEmail +
+              '">' +
+              cfg().fallbackEmail +
+              "</a>.",
+            "",
+            true
           );
         })
-        .catch(function () {
+        .catch(function (error) {
           restore();
+          var link = mailtoFor(payload);
+          var reason = error && error.message === "not-configured" ? "" : " (" + (error && error.message ? error.message : "сеть") + ")";
           say(
-            "Сервис возвратов сейчас недоступен. Напишите на support@seeker.ru — заявку оформим вручную.",
-            "fail"
+            "Не удалось отправить заявку автоматически" +
+              reason +
+              '. <a href="' +
+              link +
+              '">Отправить её письмом в один клик</a> — поля уже заполнены, заявку оформим вручную.',
+            "fail",
+            true
           );
         });
     });
