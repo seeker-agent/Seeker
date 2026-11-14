@@ -5,7 +5,7 @@
    в supabase/moderator.sql.
    ============================================================ */
 
-import { supabase, getSession } from "./supabase-client.js";
+import { supabase, getSession, onAuthChange } from "./supabase-client.js";
 
 /** Роли, которым доступна панель модератора. */
 export const MOD_ROLES = ["support", "moderator", "admin", "owner"];
@@ -61,10 +61,16 @@ export async function fetchRole(userId) {
 
 /** Роль текущей сессии (или null, если не вошли). */
 export async function currentRole() {
-  const session = await getSession();
-  if (!session?.user) return { role: null, label: ROLE_LABELS.user, isModerator: false, setup: false, user: null };
-  const info = await fetchRole(session.user.id);
-  return { ...info, user: session.user };
+  const { data } = await getSession();
+  const session = data?.session ?? null;
+  const user = session?.user ?? null;
+
+  if (!user) {
+    return { role: null, label: ROLE_LABELS.user, isModerator: false, setup: false, user: null };
+  }
+
+  const info = await fetchRole(user.id);
+  return { ...info, user };
 }
 
 /**
@@ -89,5 +95,10 @@ export async function mountModEntry(info) {
 
 /* На дашборде используем как автоматический модуль. */
 if (document.querySelector("[data-mod-only]")) {
-  mountModEntry();
+  mountModEntry().catch((error) => console.warn("Seeker: роли —", error?.message || error));
+
+  /* Вошёл/вышел — сразу пересчитываем доступ, без перезагрузки страницы. */
+  onAuthChange(() => {
+    mountModEntry().catch(() => {});
+  });
 }
