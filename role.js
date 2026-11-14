@@ -77,9 +77,10 @@ export async function mountModEntry(info) {
 
   nodes.forEach((node) => {
     node.hidden = !state.isModerator;
-    if (state.isModerator && node.dataset.modRoleLabel !== undefined) {
-      const label = node.querySelector("[data-mod-role]");
-      if (label) label.textContent = state.label;
+    if (state.isModerator) {
+      node.querySelectorAll("[data-mod-role]").forEach((label) => {
+        label.textContent = state.label;
+      });
     }
   });
 

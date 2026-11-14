@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Модерация — Seeker</title>
+<meta name="description" content="Служебная панель Seeker: заявки на возврат, чарджбэки и журнал ответов платёжной системы.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#06030d">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="bg-layer" aria-hidden="true">
+  <span class="orb orb-1"></span>
+  <span class="orb orb-2"></span>
+  <span class="orb orb-3"></span>
+</div>
+
+<header class="nav" id="nav">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img class="logo-img" src="logo.png" alt="Логотип Seeker" width="34" height="34">
+      Seeker
+    </a>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html#features">Возможности</a></li>
+        <li><a href="index.html#mobile">Мобильное приложение</a></li>
+        <li><a href="index.html#agent">Seeker v1</a></li>
+        <li><a href="pricing.html">Подписка</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="btn btn-ghost btn-dash" href="dashboard.html" aria-label="Панель управления" title="Панель управления">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/></svg>
+        <span class="btn-dash-label">Панель управления</span>
+      </a>
+      <a class="btn btn-primary" href="pricing.html">Оформить Pro</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="nav-drawer" id="navDrawer">
+  <a href="index.html#features">Возможности</a>
+  <a href="index.html#mobile">Мобильное приложение</a>
+  <a href="index.html#agent">Seeker v1</a>
+  <a href="pricing.html">Подписка и цены</a>
+  <a href="dashboard.html">Панель управления</a>
+  <a class="btn btn-primary btn-block" href="pricing.html">Оформить Seeker Pro</a>
+</div>
+
+<main>
+
+<section class="section">
+  <div class="container">
+
+    <h1>Режим модератора</h1>
+    <p class="lead">Заявки на возврат, чарджбэки и журнал ответов платёжной системы. Доступ открыт по роли в таблице <code>user_roles</code>.</p>
+
+    <!-- Заглушка доступа: показывается, пока роль не подтверждена -->
+    <div class="mod-gate reveal" id="modGate">
+      <h2 id="modGateTitle">Проверяем доступ…</h2>
+      <p id="modGateText">Это займёт секунду.</p>
+      <div class="btn-row" id="modGateActions" hidden>
+        <a class="btn btn-primary" href="dashboard.html">В панель управления</a>
+        <a class="btn btn-ghost" href="index.html">На главную</a>
+      </div>
+    </div>
+
+    <!-- Панель модератора -->
+    <div id="modPanel" hidden>
+
+      <div class="mod-stats">
+        <div class="mod-stat" data-tone="new"><b data-stat="new">0</b><small>Новые</small></div>
+        <div class="mod-stat" data-tone="work"><b data-stat="in_progress">0</b><small>В работе</small></div>
+        <div class="mod-stat" data-tone="ok"><b data-stat="approved">0</b><small>Одобрено</small></div>
+        <div class="mod-stat" data-tone="bad"><b data-stat="declined">0</b><small>Отклонено</small></div>
+        <div class="mod-stat"><b data-stat="chargeback">0</b><small>Чарджбэки</small></div>
+        <div class="mod-stat"><b data-stat="total">0</b><small>Всего заявок</small></div>
+      </div>
+
+      <div class="mod-toolbar">
+        <div class="mod-search">
+          <input type="search" id="modSearch" placeholder="Поиск: номер заказа, почта, комментарий" autocomplete="off" aria-label="Поиск по заявкам">
+        </div>
+        <div class="mod-filters" id="modFilters">
+          <button class="mod-chip" type="button" data-filter="all" aria-pressed="true">Все <span data-count="all">0</span></button>
+          <button class="mod-chip" type="button" data-filter="new" aria-pressed="false">Новые <span data-count="new">0</span></button>
+          <button class="mod-chip" type="button" data-filter="in_progress" aria-pressed="false">В работе <span data-count="in_progress">0</span></button>
+          <button class="mod-chip" type="button" data-filter="approved" aria-pressed="false">Одобрено <span data-count="approved">0</span></button>
+          <button class="mod-chip" type="button" data-filter="declined" aria-pressed="false">Отклонено <span data-count="declined">0</span></button>
+        </div>
+        <button class="btn btn-ghost btn-sm" type="button" id="modRefresh">Обновить</button>
+      </div>
+
+      <p class="mod-note" id="modMessages" hidden></p>
+
+      <div class="mod-list" id="modList"></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" style="padding-top:0" id="payments" hidden>
+  <div class="container">
+
+    <h2>Журнал платежей</h2>
+    <p class="lead">Ответы платёжной системы, которые сохранила страница <code>payment-callback.html</code>.</p>
+
+    <p class="mod-note" id="payMessages" hidden></p>
+    <div class="mod-list" id="payList"></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0" id="events" hidden>
+  <div class="container">
+
+    <h2>История действий</h2>
+    <p class="lead">Последние 40 записей: кто и когда менял статус заявки.</p>
+
+    <ul class="mod-log" id="eventList"></ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© <span id="year">2025</span> Seeker. Все права защищены.</span>
+      <span class="tag"><i></i> Служебный раздел</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script type="module" src="assets/js/moderator.js"></script>
+</body>
+</html>

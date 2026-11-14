@@ -79,6 +79,7 @@
       </button>
 
       <p class="auth-note" id="authNote">Проверяем вход…</p>
+      <p class="auth-note" hidden><span>Адрес возврата после Google:</span> <code data-auth-redirect hidden></code></p>
       <div class="auth-error" id="authError" role="alert" hidden></div>
 
       <ul class="auth-points">
@@ -191,6 +192,25 @@
   </div>
 </section>
 
+<section class="section" style="padding-top:0" data-mod-only hidden>
+  <div class="container">
+    <article class="card reveal">
+      <div class="card-ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.5 3v6.2c0 4.2-3 7.6-7.5 8.8-4.5-1.2-7.5-4.6-7.5-8.8V6z"/><path d="M9 12.2l2.1 2.1L15.3 10"/></svg>
+      </div>
+      <h3>Режим модератора</h3>
+      <p>
+        Роль в Seeker: <b data-mod-role>Модератор</b>. Доступны заявки на возврат,
+        чарджбэки и журнал ответов платёжной системы.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="moderator.html">Открыть заявки</a>
+        <a class="btn btn-ghost" href="moderator.html#payments">Журнал платежей</a>
+      </div>
+    </article>
+  </div>
+</section>
+
 <section class="section" style="padding-top:0">
   <div class="container">
     <div class="cta-band reveal">
@@ -259,5 +279,6 @@
 <script src="assets/js/main.js"></script>
 <script type="module" src="assets/js/auth.js"></script>
 <script type="module" src="assets/js/subscription.js"></script>
+<script type="module" src="assets/js/role.js"></script>
 </body>
 </html>
